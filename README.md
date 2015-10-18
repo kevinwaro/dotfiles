@@ -21,9 +21,9 @@ colors and fonts, tab and indent settings, the status line, and
 some useful mappings.
 
 I'm using many useful plugins as: 
-*. **pathogen:** > Poor man's package manager (https://github.com/tpope/vim-pathogen)
-*. **airline:** > Lean & mean status/tabline for vim (https://github.com/bling/vim-airline)
-*. **syntastic:** > A syntax checking plugin -https://github.com/scrooloose/syntastic)
+* . **pathogen:** > Poor man's package manager (https://github.com/tpope/vim-pathogen)
+* . **airline:** > Lean & mean status/tabline for vim (https://github.com/bling/vim-airline)
+* . **syntastic:** > A syntax checking plugin -https://github.com/scrooloose/syntastic)
 
 And the solarized colorscheme (http://ethanschoover.com/solarized)
 
@@ -40,6 +40,7 @@ Thanks
 ------
 
 .bashrc : Thanks to Emmanuel Rouat and his precious bashrc example (http://tldp.org/LDP/abs/html/sample-bashrc.html).
+
 .vim : Thanks to Vincent Jousse (http://vincent.jousse.org) and Amir Salihefendic (http://amix.dk).
 
 
