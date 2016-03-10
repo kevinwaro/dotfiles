@@ -47,8 +47,8 @@ shopt -s extglob    # Necessary for programmable completion.
 
 # Disable option
 shopt -u mailwarn
-unset MAILCHECK    # Don't want my shell to war me of incoming mail.
-
+unset MAILCHECK    # Don't want my shell to warn me of incoming mail.
+#export LC_ALL=C    # Don't want to display escape color codes
 #--------------------------------------------------------------------------
 # Greeting, motd etc...
 #--------------------------------------------------------------------------
@@ -262,13 +262,14 @@ alias mkdir='mkdir -p'
 
 alias h='history'
 alias j='jobs -l'
-
+alias empty='truncate -s0'
 
 #--------------------------------------------------------------------------
 # ls command Aliases
 #--------------------------------------------------------------------------
 
 # Add color for filetype and human-readable sizes by default on 'ls':
+test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 alias ls='ls -h --color'
 alias l='ls -CF'            # Sort in colums, with indicators /*>
 alias lx='ls -lXB'          # Sort by extension.
@@ -283,6 +284,9 @@ alias lm='ll | more'        # Pipe through 'more'
 alias lr='ll -R'            # Recursive ls.
 alias la='ll -A'            # Show hidden files.
 #alias tree='tree -Csuh'    # Nice alternative to 'recursive ls' ... //to install
+
+# Force the coloured output of the less command
+alias less='less -r'
 
 #--------------------------------------------------------------------------
 # Tailoring 'less'
@@ -360,3 +364,24 @@ function maketar() { tar cvzf "${1%%/}.tar.gz" "${1%%/}/"; }
 
 # Creates a ZIP archive of a file or folder.
 function makezip() { zip -r "${1%%/}.zip" "$1" ; }
+
+#--------------------------------------------------------------------------
+# Other functions
+#--------------------------------------------------------------------------
+
+function play ()    # Just play a folder
+{
+    if [ "$#" -ne 1 ] ; then 
+        echo "Usage: play [DIR]"
+    else
+        SONGDIR=$1
+        OLDPWD=$(pwd)
+          if [ -d "$SONGDIR" ] ; then
+              cd "$SONGDIR" && mplayer *.mp3
+              cd $OLDPWD
+          else
+              mplayer $SONGDIR
+              cd $OLDPWD
+          fi
+    fi
+}

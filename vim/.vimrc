@@ -3,9 +3,10 @@
 " I TAKE THOSE CONFIGURATIONS FROM MANY WEBSITES
 " I'M USING ALSO MANY USEFUL PLUGINS AS 
 " 	-PATHOGEN
+" 	-NERDTREE
 " 	-AIRLINE
 " 	-SYNTASTIC
-"AND THE SOLARIZED THEME
+"AND THE MOLOKAI THEME
 
 """""""""""""""""""""""""""
 " => General
@@ -16,8 +17,7 @@ execute pathogen#infect()
 " Remember more commands and search history
 set history=1000	
 
-" Use many more levels of undo
-set undolevels=1000
+" Use many more levels of undo set undolevels=1000
 
 " Enable filetype plugin
 filetype plugin indent on
@@ -74,11 +74,8 @@ set nospell
 " Enabling syntax highlighting
 syntax enable
 
-" Setting the solaried scheme with dark background
-set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
-
+" Setting the molokai scheme 
+let g:rehash256 = 1
 " Setting the number of colors to 256 for the terminal
 set t_Co=256
 

@@ -25,7 +25,7 @@ I'm using many useful plugins as:
 * . **airline:** > Lean & mean status/tabline for vim (https://github.com/bling/vim-airline)
 * . **syntastic:** > A syntax checking plugin -https://github.com/scrooloose/syntastic)
 
-And the solarized colorscheme (http://ethanschoover.com/solarized)
+And the molokai colorscheme 
 
 bashrc Configurations
 ---------------------
