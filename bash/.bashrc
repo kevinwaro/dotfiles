@@ -45,6 +45,8 @@ shopt -s cmdhist
 shopt -s histappend histreedit histverify
 shopt -s extglob    # Necessary for programmable completion.
 
+export EDITOR=vim
+
 # Disable option
 shopt -u mailwarn
 unset MAILCHECK    # Don't want my shell to warn me of incoming mail.
