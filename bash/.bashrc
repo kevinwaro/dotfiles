@@ -3,7 +3,7 @@
 # MY PERSONAL $HOME/.bashrc FILE 
 # By Kevin Hoarau
 # Based on the .bashrc FILE of Emmanuel Rouat http://tldp.org/LDP/abs/html/sample-bashrc.html
-# Last modification : 18/10/2015 17:20
+# Last modification : 19/03/2016 22:11
 #
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # ======================================================================= #
@@ -48,10 +48,8 @@ shopt -s extglob    # Necessary for programmable completion.
 # Disable option
 shopt -u mailwarn
 unset MAILCHECK    # Don't want my shell to warn me of incoming mail.
-#export LC_ALL=C    # Don't want to display escape color codes
-#--------------------------------------------------------------------------
-# Greeting, motd etc...
-#--------------------------------------------------------------------------
+export LC_ALL=C    # Don't want to display escape color codes
+
 
 # Color definitions .
 # Some color might look different on some terminals.
@@ -332,7 +330,6 @@ fi
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'"$*"'*' -ls ; }
-
 
 # mkdir and cd commands in one 
 function mkdircd () { mkdir -p "$@" && eval cd "\"\$$#\""; }
