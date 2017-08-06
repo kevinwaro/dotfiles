@@ -1,5 +1,9 @@
 class vim {
 
+    package { 'git':
+       ensure => "present",
+    }
+
     package { 'vim':
        ensure => "present",
     }
@@ -43,5 +47,12 @@ class vim {
        require => File['/home/vagrant/.vim'],
        path    => ['/usr/bin', '/usr/sbin',],
     }
-}
 
+    exec { 'git clone https://github.com/vim-airline/vim-airline':
+       command => 'git clone https://github.com/vim-airline/vim-airline',
+       cwd     => '/home/vagrant/.vim/bundle',
+       creates => '/home/vagrant/.vim/bundle/vim-airline',
+       require => File['/home/vagrant/.vim'],
+       path    => ['/usr/bin', '/usr/sbin',],
+    }
+}
