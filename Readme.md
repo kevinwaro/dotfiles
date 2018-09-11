@@ -10,17 +10,15 @@ Content
 
 * . **vim** > vim config files and plugins 
 * . **bash** > bashrc file
-* . **i3wm**
-    * . i3 > i3 window manager configuration file
-    * . i3status > i3 status bar configuration file
-* . **X11** > Xresources file
+* . **tmux** > TMUX config file
+* . **xfce4-terminal** > config file for the xfce4-terminal
 
 Requirements
 ------------
 
 To use those configuration files(one of them or all), you will need:
 
-* bash as your default shell
+* BASH as your default shell
 * Vi IMprove (vim)
 
 vim configurations
@@ -34,8 +32,6 @@ I'm using a few useful plugins:
 * . **airline**  > lean & mean status/tabline for vim  (https://github.com/bling/vim-airline)
 * . **syntastic** > a syntax checking plugin (https://github.com/scrooloose/syntastic)
 
-And of course the molokai theme (https://github.com/tomasr/molokai)
-
 bashrc configurations 
 ---------------------
 
@@ -44,22 +40,17 @@ status like cpu usage, user, the kind of session and disk usage.
 
 I also added some personnal useful functions and aliases to make me more lazy. 
 
-i3 configurations
------------------
+tmux configuration
+---------------------
 
-This config is not so different than the default one, I just defined Super key as mod key,created
-personnal workspaces, modified background and theme colours,  and add screen lock binding. 
+A classical tmux setup, with some keybindings and color settings. There's also a setup statusline that displays the load average.
 
-i3 status configurations 
-------------------------
 
-I just added to the default configuration the disk usage of my home directory, and displayed load 
-average. 
+xfce4-terminal configurations 
+---------------------
 
-Xresources configurations 
--------------------------
+The terminal has quite simple setup, with molokai as color theme.
 
-Defines the color bindings for a molokai like theme the xterm. 
 
 Thanks
 ------
@@ -67,5 +58,3 @@ Thanks
 .bashrc : thanks to Emmanuel Rouat and his precious bashrc example (http://tldp.org/LDP/abs/html/sample-bashrc.html).
 
 .vim : thanks to Vincent Jousse (http://vincent.jousse.org) and Amir Salihefendic (http://amix.dk).
-
-i3 and i3status: thanks to tunnelshade (https://github.com/tunnelshade/awesome-dots/tree/master/.i3). 
