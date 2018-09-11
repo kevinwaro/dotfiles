@@ -8,10 +8,10 @@ They are not perfect but they are doing the job.
 Content
 -------
 
-* . **vim** > vim config files and plugins 
-* . **bash** > bashrc file
-* . **tmux** > TMUX config file
-* . **xfce4-terminal** > config file for the xfce4-terminal
+* **vim** > vim config files and plugins 
+* **bash** > bashrc file
+* **tmux** > TMUX config file
+* **xfce4-terminal** > config file for the xfce4-terminal
 
 Requirements
 ------------
