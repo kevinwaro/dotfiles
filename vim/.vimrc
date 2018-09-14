@@ -6,13 +6,13 @@
 " 	-NERDTREE
 " 	-AIRLINE
 " 	-SYNTASTIC
-"AND THE MOLOKAI THEME
 
 """""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""
 " Enabling pathogen
-execute pathogen#infect()
+call pathogen#infect()
+call pathogen#helptags()
 
 " Remember more commands and search history
 set history=1000	
@@ -20,7 +20,9 @@ set history=1000
 " Use many more levels of undo set undolevels=1000
 
 " Enable filetype plugin
+filetype off
 filetype plugin indent on
+syntax on
 
 " Replacing the leader key \
 "  by , key to do extra key combinations
@@ -73,17 +75,11 @@ set nospell
 " Enabling syntax highlighting
 syntax enable
 
-" Setting the molokai scheme 
-let g:rehash256 = 1
-" Setting the number of colors to 256 for the terminal
-set t_Co=256
-
 " Use utf8 as standard encoding 
 set encoding=utf8
 
 " Use Unix as standard file type
 set ffs=unix,dos
-
 
 """""""""""""""""""""""""""
 " => Files, backups and undo
@@ -147,6 +143,10 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Open new split panes to right and bottom
+set splitbelow
+set splitright
+
 """""""""""""""""""""""""""
 " => Status line 
 """""""""""""""""""""""""""
@@ -163,3 +163,19 @@ set cursorline
 
 " Show (partial) command in status line.
 set showcmd			
+
+" Set some syntastic options
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+""""""""""""""""""""""""""
+" NerdTree
+""""""""""""""""""""""""""
+
+map <C-n> :NERDTreeToggle<CR>
