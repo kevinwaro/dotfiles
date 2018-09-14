@@ -31,6 +31,7 @@ I'm using a few useful plugins:
 * . **pathogen** > the poor man's package manager (https://github.com/tpope/vim-pathogen)
 * . **airline**  > lean & mean status/tabline for vim  (https://github.com/bling/vim-airline)
 * . **syntastic** > a syntax checking plugin (https://github.com/scrooloose/syntastic)
+* . **nerdtree** > A tree explorer plugin (https://github.com/scrooloose/nerdtree)
 
 bashrc configurations 
 ---------------------
