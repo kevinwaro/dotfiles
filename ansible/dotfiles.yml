@@ -1,0 +1,59 @@
+---
+- name: Setup dotfiles on server
+  hosts: "{{ target }}"
+  become: True
+  vars:
+      - username: "{{ ansible_ssh_user }}"
+      - group: "{{ ansible_ssh_user }}"
+  tasks:
+      - name: Install useful tools
+        apt: name={{ item }} update_cache=yes
+        with_items:
+            - vim
+            - tmux
+            - git
+
+      - name: Prepare pathogen install
+        file: "path=/home/{{ ansible_ssh_user }}/.vim/{{ item }} state=directory mode=0755 owner={{ username }} group={{ group }}"
+        with_items:
+            - autoload
+            - bundle
+
+      - name: Download pathogen
+        get_url:
+            url: https://tpo.pe/pathogen.vim
+            dest: "/home/{{ ansible_ssh_user }}/.vim/autoload/pathogen.vim"
+            owner: "{{ username }}"
+            group: "{{ group }}"
+
+      - name: Update .vimrc file
+        copy:
+            src: vim/.vimrc
+            dest: "/home/{{ ansible_ssh_user }}/.vimrc"
+            owner: "{{ username }}"
+            group: "{{ group }}"
+
+      - name: Download vim plugins
+        git: "repo={{ item }} dest=/home/{{ ansible_ssh_user }}/.vim/bundle/{{ item.split('/')[-1][:-4] }} version=HEAD clone=yes force=yes"
+        with_items:
+            - https://github.com/vim-airline/vim-airline.git
+            - https://github.com/vim-syntastic/syntastic.git
+            - https://github.com/scrooloose/nerdtree.git
+
+      - name: Update .bashrc file
+        copy: "src=bash/{{ item }} dest=/home/{{ ansible_ssh_user }}/{{ item }} owner={{ username }} group={{ group }}"
+        with_items:
+            - .bashrc
+            - .bash_aliases
+
+      - name: Update .tmux.conf file
+        copy:
+            src: tmux/.tmux.conf
+            dest: "/home/{{ ansible_ssh_user }}/.tmux.conf"
+            owner: "{{ username }}"
+            group: "{{ group }}"
+
+      - name: Sanitize ownership rigts
+        file: "path=/home/{{ ansible_ssh_user }}/{{ item }} owner={{ username }} group={{ group }} mode=0755 recurse=true"
+        with_items:
+            - .vim/bundle
