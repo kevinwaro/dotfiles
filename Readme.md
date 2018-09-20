@@ -30,6 +30,10 @@ The fastest way is to browse the configurations and cherry pick the ones that ar
 
 An ansible playbook is also provided to deploy and setup these config files on a server.
 
+### Puppet cookbook
+
+A puppet cookbook is also provided to deploy and setup these config files on a server.
+
 ## Description
 
 ### Vim configurations
